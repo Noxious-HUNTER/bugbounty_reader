@@ -2,4 +2,3 @@ selenium
 tqdm
 feedparser
 beautifulsoup4
-anew==0.1.0
