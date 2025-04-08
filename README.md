@@ -12,3 +12,14 @@ Collect writeups:
 ```python
 python3 main.py --collect
 ```
+Filter writeups by source:
+```python
+python main.py --filter --source pentesterland
+```
+Filter writeups by topic:
+```python
+python main.py --filter --topic xss
+```
+Update writeups:
+```python
+python main.py --update
