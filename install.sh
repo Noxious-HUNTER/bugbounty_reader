@@ -1,50 +1,28 @@
 #!/bin/bash
 
-# تنظیمات اولیه
+# نصب ابزار BugBounty Reader CLI
 echo "📥 Installing BugBounty Reader CLI tool..."
 
-# بررسی اینکه آیا قبلاً نصب شده است یا خیر
-if [ -d "bugbounty_reader" ]; then
-    echo "🔄 Existing installation found. Updating..."
+# کلون کردن مخزن از گیت‌هاب
+git clone https://github.com/Noxious-HUNTER/bugbounty_reader.git
 
-    # وارد پوشه پروژه شویم
-    cd bugbounty_reader
+cd bugbounty_reader || exit
 
-    # بروزرسانی مخزن
-    git pull origin main
+# نصب وابستگی‌ها
+echo "📥 Installing dependencies from requirements.txt..."
+pip3 install -r requirements.txt
 
-    # فعال کردن محیط مجازی
-    source venv/bin/activate
+# کپی کردن اسکریپت BBreader به /usr/local/bin
+echo "📥 Installing BBreader CLI command..."
+chmod +x BBreader.py
+mv BBreader.py /usr/local/bin/BBreader
 
-    # بروزرسانی وابستگی‌ها
-    pip install --upgrade -r requirements.txt
-
-    # بروزرسانی اسکریپت
-    chmod +x BBreader
-    sudo mv BBreader /usr/local/bin/
-
-    echo "✅ Update complete. You can now use BBreader."
-
-else
-    # در صورتی که نصب قبلی وجود نداشت
-    echo "📥 Installing BugBounty Reader..."
-
-    # کلون کردن مخزن
-    git clone https://github.com/YOUR_USERNAME/bugbounty_reader.git
-    cd bugbounty_reader
-
-    # ایجاد محیط مجازی
-    python3 -m venv venv
-    source venv/bin/activate
-
-    # نصب وابستگی‌ها
-    pip install -r requirements.txt
-
-    # تغییر دسترسی به اسکریپت BBreader
-    chmod +x BBreader
-
-    # انتقال اسکریپت به /usr/local/bin برای دسترسی سراسری
-    sudo mv BBreader /usr/local/bin/
-
-    echo "✅ Installation complete. You can now use BBreader."
+# بررسی نصب درست
+if ! command -v BBreader &> /dev/null
+then
+    echo "❌ Failed to install BBreader. Please check permissions."
+    exit 1
 fi
+
+# نصب کامل شد
+echo "✅ Installation complete. You can now use BBreader from anywhere in the terminal."
