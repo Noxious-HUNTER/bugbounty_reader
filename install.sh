@@ -10,7 +10,7 @@ cd bugbounty_reader || exit
 
 # نصب وابستگی‌ها
 echo "📥 Installing dependencies from requirements.txt..."
-pip3 install -r requirements.txt
+pip3 install -r requirements.txt --break-system-packages
 
 # کپی کردن اسکریپت BBreader به /usr/local/bin
 echo "📥 Installing BBreader CLI command..."
