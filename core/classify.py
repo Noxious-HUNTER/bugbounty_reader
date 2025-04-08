@@ -10,8 +10,10 @@ def classify_writeups(writeups):
 
     for writeup in writeups:
         writeup["tags"] = []
+        # بررسی عنوان و در صورت وجود توضیحات (description)
         for tag, keywords in topics.items():
-            if any(keyword.lower() in writeup["title"].lower() or keyword.lower() in writeup["description"].lower() for keyword in keywords):
+            # بررسی در عنوان و توضیحات در صورت وجود
+            if any(keyword.lower() in writeup["title"].lower() or (writeup.get("description") and keyword.lower() in writeup["description"].lower()) for keyword in keywords):
                 writeup["tags"].append(tag)
 
     return writeups
