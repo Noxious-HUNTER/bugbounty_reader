@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import argparse
 from collectors import pentesterland, medium
 from core.classify import classify_writeups
