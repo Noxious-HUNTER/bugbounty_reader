@@ -10,12 +10,12 @@ cd bugbounty_reader || exit
 
 # نصب وابستگی‌ها
 echo "📥 Installing dependencies from requirements.txt..."
-pip3 install -r requirements.txt --break-system-packages
+sudo pip3 install -r requirements.txt  # اضافه کردن sudo برای نصب در سیستم
 
 # کپی کردن اسکریپت BBreader به /usr/local/bin
 echo "📥 Installing BBreader CLI command..."
 chmod +x BBreader.py
-mv BBreader.py /usr/local/bin/BBreader
+sudo mv BBreader.py /usr/local/bin/BBreader  # اضافه کردن sudo برای کپی فایل
 
 # بررسی نصب درست
 if ! command -v BBreader &> /dev/null
