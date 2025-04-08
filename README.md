@@ -5,9 +5,7 @@ A CLI-based tool to collect, merge, classify, and manage bug bounty writeups fro
 ## 🚀 Installation
 
 ```bash
-bash git clone https://github.com/Noxious-HUNTER/bugbounty_reader.git
-cd bugbounty_reader
-./install.sh
+curl -sSL https://github.com/Noxious-HUNTER/bugbounty_reader/raw/main/install.sh | bash
 ```
 ## 🚀 Usage
 Collect writeups:
