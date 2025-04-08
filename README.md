@@ -9,6 +9,6 @@ bash <(curl -s https://raw.githubusercontent.com/Noxious-HUNTER/bugbounty_reader
 ```
 ## 🚀 Usage
 Collect writeups:
-```bash
-python main.py --collect
+```python
+python3 main.py --collect
 ```
